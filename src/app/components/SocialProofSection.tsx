@@ -206,7 +206,10 @@ export function SocialProofSection() {
             />
           </ScrollReveal>
 
-          
+        
+        </div>
+
+        
       </div>
     </section>
   );
