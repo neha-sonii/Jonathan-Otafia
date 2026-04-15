@@ -206,46 +206,7 @@ export function SocialProofSection() {
             />
           </ScrollReveal>
 
-          {/* METRIC CARD — conversion */}
-          {/* <ScrollReveal delay={0.35}>
-            <MetricCard
-              icon={Target}
-              value="₦0"
-              label="In Ad Spend"
-              sub="Pure organic strategy"
-              color="#cc66ff"
-            />
-          </ScrollReveal> */}
-        </div>
-
-        {/* Trusted by pill bar */}
-        {/* <ScrollReveal delay={0.15}>
-          <div
-            className="rounded-2xl px-8 py-6 flex flex-wrap items-center justify-center gap-3"
-            style={glass}
-          >
-            <span
-              className="text-[#4a5568] text-xs uppercase tracking-widest mr-2 w-full text-center md:w-auto"
-              style={{ fontFamily: "Inter, sans-serif" }}
-            >
-              Trusted by coaches &amp; founders from
-            </span>
-            {["Health Coaches", "Business Coaches", "Life Coaches", "Tech Founders", "Consultants", "Course Creators"].map((name) => (
-              <div
-                key={name}
-                className="px-3.5 py-1.5 rounded-full text-xs"
-                style={{
-                  background: "rgba(124,0,158,0.1)",
-                  border: "1px solid rgba(124,0,158,0.22)",
-                  color: "#cc66ff",
-                  fontFamily: "Inter, sans-serif",
-                }}
-              >
-                {name}
-              </div>
-            ))}
-          </div>
-        </ScrollReveal> */}
+          
       </div>
     </section>
   );
