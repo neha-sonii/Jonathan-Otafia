@@ -146,13 +146,7 @@ export function SocialProofSection() {
                   <p className="text-white font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>Victor Olothi</p>
                   <p className="text-[#64748b] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>Content Strategist, Nigeria</p>
                 </div>
-                {/* <div
-                  className="px-4 py-2 rounded-xl text-center"
-                  style={{ background: "rgba(124,0,158,0.15)", border: "1px solid rgba(124,0,158,0.25)" }}
-                >
-                  <p className="text-white font-bold text-sm" style={{ fontFamily: "Space Grotesk, sans-serif", color: "#cc66ff" }}>3 Clients</p>
-                  <p className="text-[#64748b] text-xs">in 6 weeks</p>
-                </div> */}
+                
               </div>
             </div>
           </ScrollReveal>
