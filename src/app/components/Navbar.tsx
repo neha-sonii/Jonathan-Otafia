@@ -101,7 +101,7 @@ export function Navbar() {
               boxShadow: `0 0 22px ${BRAND_GLOW}`,
             }}
           >
-            Book a Free Call
+            Book a Discovery Call
           </a>
         </div>
 

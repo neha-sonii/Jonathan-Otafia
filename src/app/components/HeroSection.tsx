@@ -131,7 +131,7 @@ export function HeroSection() {
                 boxShadow: `0 0 40px ${BRAND_GLOW}, 0 4px 24px rgba(0,0,0,0.4)`,
               }}
             >
-              Book a Free Call
+              Book a Discovery Call
               <ArrowRight size={18} />
             </a>
             <a

@@ -143,7 +143,7 @@ export function SocialProofSection() {
                   <ImageWithFallback src={FEATURED_AVATAR} alt="Chioma Adeyemi" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1">
-                  <p className="text-white font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>Chioma Adeyemi</p>
+                  <p className="text-white font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>Victor Olothi</p>
                   <p className="text-[#64748b] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>Content Strategist, Nigeria</p>
                 </div>
                 {/* <div
