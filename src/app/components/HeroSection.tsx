@@ -2,7 +2,7 @@ import { ArrowRight, Play, Star, Users, TrendingUp, Linkedin } from "lucide-reac
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 // Use public folder for image
-const PROFILE_IMG = "/Brand photo.jpg";
+const PROFILE_IMG = "/Brand photo.png";
 
 const BRAND = "#7C009E";
 const BRAND_LIGHT = "#A100CF";
