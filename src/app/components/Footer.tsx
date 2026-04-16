@@ -51,11 +51,11 @@ export function Footer() {
               <span style={{ fontFamily: "Inter, sans-serif" }}>Oyo State, Nigeria</span>
             </div>
             <a
-              href="mailto:hello@jonathanotafia.com"
+              href="mailto:jonathanpaulinus32@gmail.com"
               className="flex items-center gap-1.5 text-[#2d3748] hover:text-[#cc66ff] transition-colors text-sm"
             >
               <Mail size={12} />
-              <span style={{ fontFamily: "Inter, sans-serif" }}>hello@jonathanotafia.com</span>
+              <span style={{ fontFamily: "Inter, sans-serif" }}>jonathanpaulinus32@gmail.com</span>
             </a>
             <a
               href="https://www.linkedin.com/in/jonathan-otafia-871297359/"
