@@ -2,7 +2,7 @@ import { CheckCircle, Crown, MapPin } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollReveal } from "./ScrollReveal";
 
-const PROFILE_IMG = "/image 3.jpg";
+const PROFILE_IMG = "/image 2.jpeg";
 
 const BRAND = "#7C009E";
 const BRAND_LIGHT = "#A100CF";
