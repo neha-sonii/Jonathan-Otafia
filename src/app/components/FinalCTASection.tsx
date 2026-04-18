@@ -83,7 +83,7 @@ export function FinalCTASection() {
             className="text-[#8b9aac] max-w-xl mx-auto mb-10"
             style={{ fontFamily: "Inter, sans-serif", fontSize: "1.1rem", lineHeight: 1.75 }}
           >
-            Book a free 30-minute strategy call. We'll audit your LinkedIn
+            Book a 20-minute discovery call. We'll audit your LinkedIn
             presence, identify your biggest visibility gaps, and map out your
             personalised 8-week transformation plan.
           </p>
@@ -93,7 +93,7 @@ export function FinalCTASection() {
         <ScrollReveal delay={0.18}>
           <div className="flex flex-wrap justify-center gap-5 mb-10">
             {[
-              { icon: Calendar, text: "Free 30-min Strategy Call" },
+              { icon: Calendar, text: "20-min Discovery Call" },
               { icon: Clock, text: "No Obligation, No Pressure" },
               { icon: Shield, text: "100% Tailored to Your Brand" },
             ].map(({ icon: Icon, text }, i) => (
