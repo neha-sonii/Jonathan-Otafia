@@ -66,7 +66,7 @@ export function HeroSection() {
               <Linkedin size={13} style={{ color: BRAND_LIGHT }} />
               <span style={{ color: "#cc66ff" }}>LinkedIn Visibility Strategist</span>
               <span style={{ color: BRAND }}>•</span>
-              <span className="text-[#94a3b8]">4,500+ Followers</span>
+              <span className="text-[#94a3b8]">5000+ Followers</span>
             </div>
           </motion.div>
 
@@ -290,7 +290,7 @@ export function HeroSection() {
                   className="text-white font-bold text-sm leading-none"
                   style={{ fontFamily: "Space Grotesk, sans-serif" }}
                 >
-                  4,500+
+                  5000+
                 </p>
                 <p className="text-[#64748b] text-xs">Followers</p>
               </div>

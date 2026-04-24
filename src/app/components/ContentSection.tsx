@@ -16,7 +16,7 @@ const glass = {
 const posts = [
   {
     content:
-      "4,000 faces are staring at me👀\n\nBut I'm very shyyyy🙈\n\nBecause 7 months ago I almost quit linkedin\n\nBut today we crossed 4,0000 people.\n(Yayyy🤭)\n\nLet me explain.....\n",
+      "4,000 faces are staring at me👀\n\nBut I'm very shyyyy🙈\n\nBecause 7 months ago I almost quit linkedin\n\nBut today we crossed 4,000 people.\n(Yayyy🤭)\n\nLet me explain.....\n",
     likes: 537,
     comments: 853,
     reposts: 29,
@@ -254,7 +254,7 @@ export function ContentSection() {
                   Follow Jonathan on LinkedIn
                 </p>
                 <p className="text-[#4a5568] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-                  4,500+ followers · Daily LinkedIn growth tips
+                  5000+ followers · Daily LinkedIn growth tips
                 </p>
               </div>
             </div>

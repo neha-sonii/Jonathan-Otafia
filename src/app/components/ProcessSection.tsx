@@ -257,81 +257,31 @@ export function ProcessSection() {
             </ScrollReveal>
           ))}
         </div>
-        {/* <ScrollReveal delay={0.12}>
-          <div
-            className="mt-8 rounded-3xl p-6 md:p-8"
-            style={{
-              ...glass,
-              background: "rgba(124,0,158,0.07)",
-              border: "1px solid rgba(124,0,158,0.2)",
-            }}
-          >
-            <div className="flex flex-col gap-6">
-              <div>
-                <p
-                  className="text-xs font-bold uppercase tracking-[0.2em]"
-                  style={{ color: "#cc66ff", fontFamily: "Space Grotesk, sans-serif" }}
-                >
-                  Final Result After 8 Weeks
-                </p>
-                <h3
-                  className="mt-3 text-white"
-                  style={{
-                    fontFamily: "Space Grotesk, sans-serif",
-                    fontSize: "clamp(1.25rem, 2vw, 1.7rem)",
-                    fontWeight: 700,
-                    letterSpacing: "-0.02em",
-                  }}
-                >
-                  You will not just be posting on LinkedIn anymore.
-                </h3>
-                <p
-                  className="mt-3 text-[#8b9aac]"
-                  style={{ fontFamily: "Inter, sans-serif", lineHeight: 1.75 }}
-                >
-                  You leave with a clearer brand, a repeatable system, and a
-                  path that turns visibility into real business momentum.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 w-full">
-                {finalResults.map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-start gap-3 rounded-2xl px-4 py-3"
-                    style={{
-                      background: "rgba(255,255,255,0.03)",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                    }}
-                  >
-                    <CheckCircle
-                      size={15}
-                      style={{ color: "#cc66ff", marginTop: 2, flexShrink: 0 }}
-                    />
-                    <span
-                      className="text-sm text-[#dbe4f0]"
-                      style={{ fontFamily: "Inter, sans-serif", lineHeight: 1.55 }}
-                    >
-                      {item}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </ScrollReveal> */}
+      
         <ScrollReveal delay={0.1} className="mt-14 text-center">
-          <a
-            href="https://selar.com/2223779e73"
-            className="inline-flex items-center gap-2 rounded-xl px-9 py-4 text-white font-bold transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
-            style={{
-              background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
-              fontFamily: "Space Grotesk, sans-serif",
-              fontSize: "1.05rem",
-              boxShadow: `0 0 32px ${BRAND_GLOW}`,
-            }}
-          >
-            Start Your 8-Week Journey
-          </a>
+          <div className="flex flex-col items-center gap-3">
+            <a
+              href="https://selar.com/2223779e73"
+              className="inline-flex items-center justify-center gap-2 rounded-xl px-9 py-4 text-white font-bold transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
+              style={{
+                background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
+                fontFamily: "Space Grotesk, sans-serif",
+                fontSize: "1.05rem",
+                boxShadow: `0 0 32px ${BRAND_GLOW}`,
+                minWidth: "280px",
+              }}>
+              Start Your 8-Week Journey
+            </a>
+            <span
+              className="text-sm font-semibold"
+              style={{
+                color: "#cc66ff",
+                fontFamily: "Space Grotesk, sans-serif",
+              }}
+            >
+              Investment: $1000
+            </span>
+          </div>
         </ScrollReveal>
       </div>
     </section>
