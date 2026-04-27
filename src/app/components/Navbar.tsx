@@ -93,7 +93,7 @@ export function Navbar() {
         {/* CTA (only show on lg and up) */}
         <div className="hidden lg:flex">
           <a
-            href="#book-call"
+            href="https://coachli.co/jonathanlegend/SV-j0iej"
             className="px-5 py-2.5 rounded-lg text-white text-sm font-semibold transition-all duration-300 hover:opacity-90 hover:scale-[1.03]"
             style={{
               background: `linear-gradient(135deg, ${BRAND}, #A100CF)`,

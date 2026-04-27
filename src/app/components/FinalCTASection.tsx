@@ -112,7 +112,7 @@ export function FinalCTASection() {
         {/* Main CTA */}
         <ScrollReveal delay={0.22}>
           <a
-            href="https://www.coachli.co/jonathanlegend/session/visibility-audit?id=12960"
+            href="https://coachli.co/jonathanlegend/SV-j0iej"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl text-white font-bold hover:opacity-95 hover:scale-[1.04] transition-all duration-300 mb-4"
