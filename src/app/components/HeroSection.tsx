@@ -122,7 +122,7 @@ export function HeroSection() {
             className="flex flex-wrap gap-4 items-center"
           >
             <a
-              href="https://coachli.co/jonathanlegend/SV-j0iej"
+              href="https://selar.com/g5c5262726"
               className="flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold transition-all duration-300 hover:scale-[1.04]"
               style={{
                 background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,

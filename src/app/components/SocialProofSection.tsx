@@ -1,6 +1,7 @@
-import { TrendingUp, Users, Award, Clock, Star, Target } from "lucide-react";
+import { TrendingUp, Users, Award, Clock, Star, Target, ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollReveal } from "./ScrollReveal";
+import { useState } from "react";
 
 const BRAND = "#7C009E";
 const BRAND_LIGHT = "#A100CF";
@@ -21,6 +22,42 @@ const purpleGlass = {
 };
 
 const FEATURED_AVATAR = "/victor olothi.jpg";
+
+interface Testimonial {
+  avatar: string;
+  name: string;
+  role: string;
+  location: string;
+  quote: string;
+  result: string;
+}
+
+const TESTIMONIALS: Testimonial[] = [
+  {
+    avatar: "/victor olothi.jpg",
+    name: "Victor Olothi",
+    role: "Content Strategist",
+    location: "Nigeria",
+    quote: "I had an ideal client i was targeting, I texted and texted over again... but no response, So i booked for jonathan's consultation and applied every step he gave me, within 2 days.. my ideal client responded.",
+    result: "+820% profile views"
+  },
+  {
+    avatar: "/prof roxanna.png",
+    name: "Roxanna Ezenekwe",
+    role: "Financial Consultant",
+    location: "United States",
+    quote: "I moved from ghosted to VISIBLE when I got access to Jonathan’s 8-week visibility system. After applying the content systems in it, I started getting consistent leads in my DMs.",
+    result: "Engagement rate increased"
+  },
+  {
+    avatar: "/nehasoni.png",
+    name: "Neha Soni",
+    role: "Web Designer",
+    location: "India",
+    quote: "I was honestly confused about what I was doing on LinkedIn. Then I came across an audiobook he shared, and it genuinely changed how I show up on linkedin. I got clarity on what I offer, how to present it, and how to show up with purpose. That clarity turned into a collaboration opportunity.",
+    result: "+1K profile views"
+  }
+];
 
 export function SocialProofSection() {
   return (
@@ -73,82 +110,13 @@ export function SocialProofSection() {
         {/* ─── BENTO GRID ─── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
 
-          {/* FEATURED TESTIMONIAL — large card, col-span-2, row-span-2 */}
+          {/* FEATURED TESTIMONIAL — large card, col-span-2, row-span-2 with carousel */}
           <ScrollReveal
             delay={0.05}
             className="md:col-span-2 md:row-span-2"
             style={{ height: "100%" }}
           >
-            <div
-              className="rounded-3xl p-8 md:p-10 flex flex-col justify-between h-full group transition-all duration-400 hover:scale-[1.01]"
-              style={{
-                ...purpleGlass,
-                border: `1px solid rgba(124,0,158,0.3)`,
-                minHeight: "320px",
-                boxShadow: `0 0 0 0 ${BRAND_GLOW}`,
-                transition: "box-shadow 0.35s ease, transform 0.35s ease",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 40px rgba(124,0,158,0.22), inset 0 0 40px rgba(124,0,158,0.06)`;
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-              }}
-            >
-              {/* Top — Stars */}
-              <div>
-                <div className="flex items-center gap-1 mb-6">
-                  {[1,2,3,4,5].map(s => (
-                    <Star key={s} size={15} className="text-[#f59e0b] fill-[#f59e0b]" />
-                  ))}
-                </div>
-
-                {/* Large quote mark */}
-                <div
-                  className="text-7xl leading-none mb-3 select-none"
-                  style={{ color: BRAND, fontFamily: "Georgia, serif", opacity: 0.4 }}
-                >
-                  "
-                </div>
-
-                <p
-                  className="text-white mb-6"
-                  style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
-                    lineHeight: 1.8,
-                  }}
-                >
-                  I had an ideal client i was targeting, I texted and texted over again... but no response, So i booked for jonathan's consultation and applied every step he gave me, within 2 days.. my ideal client responded.
-                </p>
-
-                {/* Result badge */}
-                <div
-                  className="inline-flex items-center gap-2 px-3 py-2 rounded-lg mb-6"
-                  style={{
-                    background: "rgba(34,197,94,0.1)",
-                    border: "1px solid rgba(34,197,94,0.2)",
-                  }}
-                >
-                  <TrendingUp size={13} className="text-[#22c55e]" />
-                  <span className="text-[#22c55e] text-xs font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-                    +820% profile views
-                  </span>
-                </div>
-              </div>
-
-              {/* Bottom — Author */}
-              <div className="flex items-center gap-4 pt-5 border-t" style={{ borderColor: "rgba(124,0,158,0.15)" }}>
-                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0" style={{ border: `2px solid rgba(200,80,255,0.4)` }}>
-                  <ImageWithFallback src={FEATURED_AVATAR} alt="Chioma Adeyemi" className="w-full h-full object-cover" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-white font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>Victor Olothi</p>
-                  <p className="text-[#64748b] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>Content Strategist, Nigeria</p>
-                </div>
-                
-              </div>
-            </div>
+            <FeaturedTestimonialCarousel />
           </ScrollReveal>
 
           {/* METRIC CARD — 4,500 followers */}
@@ -212,6 +180,162 @@ export function SocialProofSection() {
         
       </div>
     </section>
+  );
+}
+
+function FeaturedTestimonialCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? TESTIMONIALS.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === TESTIMONIALS.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const currentTestimonial = TESTIMONIALS[currentIndex];
+
+  return (
+    <div
+      className="rounded-3xl p-8 md:p-10 flex flex-col justify-between h-full group transition-all duration-400 hover:scale-[1.01] relative"
+      style={{
+        ...purpleGlass,
+        border: `1px solid rgba(124,0,158,0.3)`,
+        minHeight: "320px",
+        boxShadow: `0 0 0 0 ${BRAND_GLOW}`,
+        transition: "box-shadow 0.35s ease, transform 0.35s ease",
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLDivElement).style.boxShadow = `0 0 40px rgba(124,0,158,0.22), inset 0 0 40px rgba(124,0,158,0.06)`;
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
+      }}
+    >
+      {/* Navigation Arrows - overlaid on the card */}
+      <button
+        onClick={goToPrevious}
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 sm:opacity-0 sm:group-hover:opacity-100"
+        style={{
+          background: "rgba(124, 0, 158, 0.6)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          border: "1px solid rgba(200, 80, 255, 0.3)",
+          color: "#fff",
+        }}
+        aria-label="Previous testimonial"
+      >
+        <ChevronLeft size={18} className="md:w-5 md:h-5" />
+      </button>
+
+      <button
+        onClick={goToNext}
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-9 h-9 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 sm:opacity-0 sm:group-hover:opacity-100"
+        style={{
+          background: "rgba(124, 0, 158, 0.6)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          border: "1px solid rgba(200, 80, 255, 0.3)",
+          color: "#fff",
+        }}
+        aria-label="Next testimonial"
+      >
+        <ChevronRight size={18} className="md:w-5 md:h-5" />
+      </button>
+
+      {/* Carousel Dots Indicator */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {TESTIMONIALS.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentIndex 
+                ? "bg-[#cc66ff] w-6" 
+                : "bg-white/20 hover:bg-white/40"
+            }`}
+            aria-label={`Go to testimonial ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Testimonial Content */}
+      <div
+        key={currentIndex}
+        className="animate-fade-in"
+        style={{
+          animation: "fadeIn 0.4s ease-in-out",
+        }}
+      >
+        {/* Top — Stars */}
+        <div>
+          <div className="flex items-center gap-1 mb-6">
+            {[1,2,3,4,5].map(s => (
+              <Star key={s} size={15} className="text-[#f59e0b] fill-[#f59e0b]" />
+            ))}
+          </div>
+
+          {/* Large quote mark */}
+          <div
+            className="text-7xl leading-none mb-3 select-none"
+            style={{ color: BRAND, fontFamily: "Georgia, serif", opacity: 0.4 }}
+          >
+            "
+          </div>
+
+          <p
+            className="text-white mb-6"
+            style={{
+              fontFamily: "Inter, sans-serif",
+              fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
+              lineHeight: 1.8,
+            }}
+          >
+            {currentTestimonial.quote}
+          </p>
+
+          {/* Result badge */}
+          <div
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg mb-6"
+            style={{
+              background: "rgba(34,197,94,0.1)",
+              border: "1px solid rgba(34,197,94,0.2)",
+            }}
+          >
+            <TrendingUp size={13} className="text-[#22c55e]" />
+            <span className="text-[#22c55e] text-xs font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+              {currentTestimonial.result}
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom — Author */}
+        <div className="flex items-center gap-4 pt-5 border-t" style={{ borderColor: "rgba(124,0,158,0.15)" }}>
+          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0" style={{ border: `2px solid rgba(200,80,255,0.4)` }}>
+            <ImageWithFallback src={currentTestimonial.avatar} alt={currentTestimonial.name} className="w-full h-full object-cover" />
+          </div>
+          <div className="flex-1">
+            <p className="text-white font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>{currentTestimonial.name}</p>
+            <p className="text-[#64748b] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{currentTestimonial.role}, {currentTestimonial.location}</p>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateX(10px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.4s ease-in-out;
+        }
+      `}</style>
+    </div>
   );
 }
 

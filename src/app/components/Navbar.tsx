@@ -93,7 +93,7 @@ export function Navbar() {
         {/* CTA (only show on lg and up) */}
         <div className="hidden lg:flex">
           <a
-            href="https://coachli.co/jonathanlegend/SV-j0iej"
+            href="https://selar.com/g5c5262726"
             className="px-5 py-2.5 rounded-lg text-white text-sm font-semibold transition-all duration-300 hover:opacity-90 hover:scale-[1.03]"
             style={{
               background: `linear-gradient(135deg, ${BRAND}, #A100CF)`,
@@ -135,13 +135,13 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#book-call"
+           <a
+            href="https://selar.com/g5c5262726"
             className="px-5 py-3 rounded-lg text-white text-sm font-semibold text-center mt-2"
             style={{ background: `linear-gradient(135deg, ${BRAND}, #A100CF)` }}
             onClick={() => setIsOpen(false)}
           >
-            Book a Free Call
+            Book a Discovery Call
           </a>
         </div>
       )}
