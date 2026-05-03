@@ -4,7 +4,7 @@ import { ScrollReveal } from "./ScrollReveal";
 const BRAND = "#7C009E";
 const BRAND_LIGHT = "#A100CF";
 const BRAND_GLOW = "rgba(124, 0, 158, 0.4)";
-const LOGO_SRC = "/Brand photo.png";
+const LOGO_SRC = "/Brand photo.jpg";
 
 const glass = {
   background: "rgba(255,255,255,0.04)",
