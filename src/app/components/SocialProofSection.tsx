@@ -123,7 +123,7 @@ export function SocialProofSection() {
           <ScrollReveal delay={0.1}>
             <MetricCard
               icon={Users}
-              value="5000+"
+              value="6000+"
               label="LinkedIn Followers"
               sub="Organic growth only"
               color={BRAND_LIGHT}
