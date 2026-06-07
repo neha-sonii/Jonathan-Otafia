@@ -34,6 +34,14 @@ interface Testimonial {
 
 const TESTIMONIALS: Testimonial[] = [
   {
+    avatar: "/turiya.jpg",
+    name: "Turiya Hodge",
+    role: "Social Media Strategist",
+    location: "United States",
+    quote: "I've been implementing your strategies from your 8-week visibility system you curated with me - and this is just the 2nd week. My impressions incresed by 57% this week, and i'm getting more meaningful engagement. We're so much in allignment that's why I bless the day i hired you.",
+    result: "57% increase in impressions"
+  },
+  {
     avatar: "/victor olothi.jpg",
     name: "Victor Olothi",
     role: "Content Strategist",
@@ -41,6 +49,7 @@ const TESTIMONIALS: Testimonial[] = [
     quote: "I had an ideal client i was targeting, I texted and texted over again... but no response, So i booked for jonathan's consultation and applied every step he gave me, within 2 days.. my ideal client responded.",
     result: "+820% profile views"
   },
+
   {
     avatar: "/prof roxanna.png",
     name: "Roxanna Ezenekwe",

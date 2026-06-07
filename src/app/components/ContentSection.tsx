@@ -221,7 +221,7 @@ export function ContentSection() {
         <div className="flex flex-wrap justify-center gap-5 mb-10">
           {posts.map((post, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
-              <div className="w-full md:w-full lg:w-[340px]" style={{ minWidth: 0 }}>
+              <div className="w-full md:w-full lg:w-[340px] min-h-[560px]" style={{ minWidth: 0 }}>
                 <PostCard post={post} />
               </div>
             </ScrollReveal>
