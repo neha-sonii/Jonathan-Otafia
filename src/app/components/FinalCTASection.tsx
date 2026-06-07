@@ -131,7 +131,7 @@ export function FinalCTASection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.26}>
-          <p className="text-[#2d3748] text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-[#94a3b8] text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
             No credit card needed. Spots are limited. Book before they fill up.
           </p>
         </ScrollReveal>
@@ -142,7 +142,7 @@ export function FinalCTASection() {
             className="mt-14 rounded-2xl p-7"
             style={glass}
           >
-            <p className="text-[#4a5568] text-sm mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
+            <p className="text-[#94a3b8] text-sm mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
               Spots filling up this month
             </p>
             <div className="flex justify-center gap-10 flex-wrap">
@@ -162,7 +162,7 @@ export function FinalCTASection() {
                   >
                     {value}
                   </p>
-                  <p className="text-[#2d3748] text-xs mt-0.5" style={{ fontFamily: "Inter, sans-serif" }}>
+                  <p className="text-[#94a3b8] text-xs mt-0.5" style={{ fontFamily: "Inter, sans-serif" }}>
                     {label}
                   </p>
                 </div>

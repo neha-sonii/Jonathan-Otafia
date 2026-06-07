@@ -103,6 +103,10 @@ export function AboutSection() {
                       <ImageWithFallback
                         src={PROFILE_IMG}
                         alt="Jonathan Otafia"
+                        width={960}
+                        height={1280}
+                        decoding="async"
+                        loading="lazy"
                         className="h-full w-full cursor-pointer object-cover"
                         style={{
                           width: "100%",

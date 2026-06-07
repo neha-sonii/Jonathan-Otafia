@@ -167,6 +167,9 @@ export function HeroSection() {
                     <img
                       src={"/person" + i + ".jpg"}
                       alt={"Client " + i}
+                      width={200}
+                      height={200}
+                      decoding="async"
                       className="w-full h-full object-cover"
                       style={{ display: "block" }}
                     />
@@ -217,6 +220,10 @@ export function HeroSection() {
               <ImageWithFallback
                 src={PROFILE_IMG}
                 alt="Jonathan Otafia - LinkedIn Growth Strategist"
+                width={596}
+                height={900}
+                decoding="async"
+                fetchPriority="high"
                 className="w-full h-full object-cover object-top"
               />
               {/* Gradient fade bottom */}
@@ -292,7 +299,7 @@ export function HeroSection() {
                 >
                   6000+
                 </p>
-                <p className="text-[#64748b] text-xs">Followers</p>
+                <p className="text-[#94a3b8] text-xs">Followers</p>
               </div>
             </div>
           </div>
@@ -301,7 +308,7 @@ export function HeroSection() {
 
       {/* Scroll indicator */}
       {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <span className="text-[#4a5568] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
+        <span className="text-[#94a3b8] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
           scroll
         </span>
         <motion.div

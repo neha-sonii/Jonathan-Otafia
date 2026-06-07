@@ -417,7 +417,7 @@ export function SolutionSection() {
                     {pillar.title}
                   </h3>
                   <p
-                    className="text-[#4a5568] text-sm"
+                    className="text-[#94a3b8] text-sm"
                     style={{ fontFamily: "Inter, sans-serif", lineHeight: 1.7 }}
                   >
                     {pillar.description}

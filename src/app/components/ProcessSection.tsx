@@ -230,7 +230,7 @@ export function ProcessSection() {
                     }}
                   >
                     <p
-                      className="mb-3 text-xs uppercase tracking-wider text-[#4a5568]"
+                      className="mb-3 text-xs uppercase tracking-wider text-[#94a3b8]"
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
                       Deliverables

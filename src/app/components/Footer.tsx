@@ -28,6 +28,10 @@ export function Footer() {
               <img
                 src={LOGO_SRC}
                 alt="Jonathan Otafia logo"
+                width={557}
+                height={448}
+                decoding="async"
+                loading="lazy"
                 className="w-full h-full object-contain p-[2px]"
               />
             </div>
@@ -38,7 +42,7 @@ export function Footer() {
               >
                 Jonathan Otafia
               </p>
-              <p className="text-[#2d3748] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-[#94a3b8] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
                 LinkedIn Visibility Strategist
               </p>
             </div>
@@ -46,13 +50,13 @@ export function Footer() {
 
           {/* Links */}
           <div className="flex items-center gap-6 flex-wrap justify-center">
-            <div className="flex items-center gap-1.5 text-[#2d3748] text-sm">
+            <div className="flex items-center gap-1.5 text-[#94a3b8] text-sm">
               <MapPin size={12} style={{ color: "#cc66ff" }} />
               <span style={{ fontFamily: "Inter, sans-serif" }}>Oyo State, Nigeria</span>
             </div>
             <a
               href="mailto:jonathanpaulinus32@gmail.com"
-              className="flex items-center gap-1.5 text-[#2d3748] hover:text-[#cc66ff] transition-colors text-sm"
+              className="flex items-center gap-1.5 text-[#94a3b8] hover:text-[#cc66ff] transition-colors text-sm"
             >
               <Mail size={12} />
               <span style={{ fontFamily: "Inter, sans-serif" }}>jonathanpaulinus32@gmail.com</span>
@@ -61,14 +65,14 @@ export function Footer() {
               href="https://www.linkedin.com/in/jonathan-otafia-871297359/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[#2d3748] hover:text-[#0077b5] transition-colors text-sm"
+              className="flex items-center gap-1.5 text-[#94a3b8] hover:text-[#0077b5] transition-colors text-sm"
             >
               <Linkedin size={12} />
               <span style={{ fontFamily: "Inter, sans-serif" }}>LinkedIn</span>
             </a>
           </div>
 
-          <p className="text-[#2d3748] text-xs text-center" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-[#94a3b8] text-xs text-center" style={{ fontFamily: "Inter, sans-serif" }}>
             © {new Date().getFullYear()} Jonathan Otafia
           </p>
         </div>
@@ -79,7 +83,7 @@ export function Footer() {
           style={{ borderColor: "rgba(124,0,158,0.1)" }}
         >
           <Crown size={12} style={{ color: "#cc66ff", opacity: 0.5 }} />
-          <p className="text-[#2d3748] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-[#94a3b8] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
             Your LinkedIn Big Brother
           </p>
           <Crown size={12} style={{ color: "#cc66ff", opacity: 0.5 }} />

@@ -188,7 +188,7 @@ export function ProblemSection() {
                   {point.headline}
                 </h3>
                 <p
-                  className="text-[#64748b]"
+                  className="text-[#94a3b8]"
                   style={{ fontFamily: "Inter, sans-serif", fontSize: "0.95rem", lineHeight: 1.65 }}
                 >
                   {point.body}

@@ -24,6 +24,7 @@ export function Navbar() {
 
   return (
     <nav
+      aria-label="Primary navigation"
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
       style={{
         background: scrolled
@@ -43,6 +44,9 @@ export function Navbar() {
             <img
               src={LOGO_SRC}
               alt="Jonathan Otafia logo"
+              width={557}
+              height={448}
+              decoding="async"
               className="w-full h-full object-contain"
             />
           </div>
@@ -107,6 +111,10 @@ export function Navbar() {
 
         {/* Mobile/Tablet Menu Button (show below lg) */}
         <button
+          type="button"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-controls="mobile-navigation"
+          aria-expanded={isOpen}
           className="lg:hidden text-white p-1.5"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -117,6 +125,7 @@ export function Navbar() {
       {/* Mobile/Tablet Menu */}
       {isOpen && (
         <div
+          id="mobile-navigation"
           className="lg:hidden px-6 pb-6 pt-2 flex flex-col gap-4"
           style={{
             background: "rgba(0,0,0,0.92)",

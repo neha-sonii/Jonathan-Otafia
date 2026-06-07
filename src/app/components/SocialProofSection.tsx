@@ -326,11 +326,19 @@ function FeaturedTestimonialCarousel() {
         {/* Bottom — Author */}
         <div className="flex items-center gap-4 pt-5 border-t" style={{ borderColor: "rgba(124,0,158,0.15)" }}>
           <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0" style={{ border: `2px solid rgba(200,80,255,0.4)` }}>
-            <ImageWithFallback src={currentTestimonial.avatar} alt={currentTestimonial.name} className="w-full h-full object-cover" />
+            <ImageWithFallback
+              src={currentTestimonial.avatar}
+              alt={currentTestimonial.name}
+              width={200}
+              height={200}
+              decoding="async"
+              loading="lazy"
+              className="w-full h-full object-cover"
+            />
           </div>
           <div className="flex-1">
             <p className="text-white font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>{currentTestimonial.name}</p>
-            <p className="text-[#64748b] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{currentTestimonial.role}, {currentTestimonial.location}</p>
+            <p className="text-[#94a3b8] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{currentTestimonial.role}, {currentTestimonial.location}</p>
           </div>
         </div>
       </div>
@@ -409,7 +417,7 @@ function MetricCard({
           {label}
         </p>
         <p
-          className="text-[#4a5568] text-xs mt-0.5"
+          className="text-[#94a3b8] text-xs mt-0.5"
           style={{ fontFamily: "Inter, sans-serif" }}
         >
           {sub}

@@ -86,6 +86,10 @@ function PostCard({ post }: { post: (typeof posts)[0] }) {
             <img
               src={LOGO_SRC}
               alt="Jonathan Otafia logo"
+              width={596}
+              height={900}
+              decoding="async"
+              loading="lazy"
               className="rounded-5 w-full h-full"
             />
           </div>
@@ -93,7 +97,7 @@ function PostCard({ post }: { post: (typeof posts)[0] }) {
             <p className="text-white font-bold text-sm" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Jonathan Otafia
             </p>
-            <p className="text-[#3d4f63] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
+            <p className="text-[#94a3b8] text-xs" style={{ fontFamily: "Inter, sans-serif" }}>
               LinkedIn Visibility Strategist
             </p>
           </div>
@@ -145,20 +149,20 @@ function PostCard({ post }: { post: (typeof posts)[0] }) {
         className="flex items-center gap-5 pt-3 border-t"
         style={{ borderColor: "rgba(124,0,158,0.1)", fontFamily: "Inter, sans-serif" }}
       >
-        <div className="flex items-center gap-1.5 text-[#3d4f63] text-xs">
+        <div className="flex items-center gap-1.5 text-[#94a3b8] text-xs">
           <Heart size={12} className="text-[#ec4899]" />
           <span>{post.likes.toLocaleString()}</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[#3d4f63] text-xs">
+        <div className="flex items-center gap-1.5 text-[#94a3b8] text-xs">
           <MessageCircle size={12} className="text-[#3b82f6]" />
           <span>{post.comments}</span>
         </div>
-        <div className="flex items-center gap-1.5 text-[#3d4f63] text-xs">
+        <div className="flex items-center gap-1.5 text-[#94a3b8] text-xs">
           <Repeat2 size={12} className="text-[#22c55e]" />
           <span>{post.reposts}</span>
         </div>
         <div className="ml-auto">
-          <Share2 size={12} className="text-[#3d4f63]" />
+          <Share2 size={12} className="text-[#94a3b8]" />
         </div>
       </div>
     </div>
@@ -253,7 +257,7 @@ export function ContentSection() {
                 >
                   Follow Jonathan on LinkedIn
                 </p>
-                <p className="text-[#4a5568] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
+                <p className="text-[#94a3b8] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
                   6000+ followers · Daily LinkedIn growth tips
                 </p>
               </div>
