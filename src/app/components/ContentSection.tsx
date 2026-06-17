@@ -258,7 +258,7 @@ export function ContentSection() {
                   Follow Jonathan on LinkedIn
                 </p>
                 <p className="text-[#94a3b8] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-                  6000+ followers · Daily LinkedIn growth tips
+                  7000+ followers · Daily LinkedIn growth tips
                 </p>
               </div>
             </div>
