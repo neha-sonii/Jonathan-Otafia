@@ -108,9 +108,6 @@ export default function App() {
       <main id="main-content">
         <HeroSection />
         <Suspense fallback={null}>
-          <LazySection id="about" minHeight={900}>
-            <AboutSection />
-          </LazySection>
           <LazySection id="results" minHeight={900}>
             <SocialProofSection />
           </LazySection>
@@ -119,6 +116,9 @@ export default function App() {
           </LazySection>
           <LazySection id="process" minHeight={1300}>
             <ProcessSection />
+          </LazySection>
+          <LazySection id="about" minHeight={900}>
+            <AboutSection />
           </LazySection>
           <LazySection id="content" minHeight={850}>
             <ContentSection />
