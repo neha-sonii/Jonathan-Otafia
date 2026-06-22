@@ -300,7 +300,7 @@ export function ProcessSection() {
 
               <div className="flex flex-col items-center gap-2">
                 <a
-                  href="https://selar.com/2223779e73"
+                  href="https://selar.com/5ks5j26b12"
                   className="inline-flex items-center justify-center gap-2 rounded-xl px-9 py-4 text-white font-bold transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
                   style={{
                     background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
