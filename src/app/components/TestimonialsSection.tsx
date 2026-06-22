@@ -14,10 +14,12 @@ const screenshotColumns = [
   {
     alignment: "left",
     items: [
-      { src: "/bento-1.jpg", alt: "Client testimonial screenshot 1", width: 482, height: 960 },
+      // { src: "/bento-1.jpg", alt: "Client testimonial screenshot 1", width: 482, height: 960 },
       { src: "/bento-4.jpg", alt: "Client testimonial screenshot 4", width: 360, height: 137 },
       { src: "/bento-8.jpg", alt: "Client testimonial screenshot 8", width: 360, height: 136 },
       { src: "/bento-9.jpg", alt: "Client testimonial screenshot 9", width: 360, height: 175 },
+      { src: "/bento-6.jpg", alt: "Client testimonial screenshot 6", width: 360, height: 257 },
+      { src: "/bento-7.jpg", alt: "Client testimonial screenshot 7", width: 360, height: 232 },
     ],
   },
   {
@@ -25,8 +27,7 @@ const screenshotColumns = [
     items: [
       { src: "/bento-2.jpg", alt: "Client testimonial screenshot 2", width: 482, height: 737 },
       { src: "/bento-5.jpg", alt: "Client testimonial screenshot 5", width: 360, height: 136 },
-      { src: "/bento-6.jpg", alt: "Client testimonial screenshot 6", width: 360, height: 257 },
-      { src: "/bento-7.jpg", alt: "Client testimonial screenshot 7", width: 360, height: 232 },
+      { src: "/bento-12.jpg", alt: "Client testimonial screenshot 12", width: 360, height: 443 },
     ],
   },
   {
@@ -35,7 +36,6 @@ const screenshotColumns = [
       { src: "/bento-3.jpg", alt: "Client testimonial screenshot 3", width: 360, height: 230 },
       { src: "/bento-10.jpg", alt: "Client testimonial screenshot 10", width: 360, height: 339 },
       { src: "/bento-11.jpg", alt: "Client testimonial screenshot 11", width: 360, height: 290 },
-      { src: "/bento-12.jpg", alt: "Client testimonial screenshot 12", width: 360, height: 443 },
     ],
   },
 ] as const;
