@@ -38,8 +38,8 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Turiya Hodge",
     role: "Social Media Strategist",
     location: "United States",
-    quote: "I've been implementing Jonathan's strategies from the 8-week visibility system he curated for me. I recieved 4 booked calls in my 2nd week, and 57% increase in impressions. We're so much in alignment that's why I bless the day i hired you.",
-    result: "4 new booked Calls"
+    quote: "I've been implementing Jonathan's strategies from the 8-week visibility system he curated for me. I recieved 4 high-ticket client meetings in my 2nd week, and 57% increase in impressions. We're so much in alignment that's why I bless the day i hired you.",
+    result: "4 high-ticket clients"
   },
   {
     avatar: "/victor olothi.jpg",

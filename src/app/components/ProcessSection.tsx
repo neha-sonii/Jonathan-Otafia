@@ -273,33 +273,55 @@ export function ProcessSection() {
             </h3>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 mt-2">
-              <a
-                href="https://selar.com/2223779e73"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-9 py-4 text-white font-bold transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
-                style={{
-                  background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
-                  fontFamily: "Space Grotesk, sans-serif",
-                  fontSize: "1.05rem",
-                  boxShadow: `0 0 32px ${BRAND_GLOW}`,
-                  minWidth: "220px",
-                }}
-              >
-                Done-With-You
-              </a>
+              <div className="flex flex-col items-center gap-2">
+                <a
+                  href="https://selar.com/2223779e73"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl px-9 py-4 text-white font-bold transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
+                  style={{
+                    background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
+                    fontFamily: "Space Grotesk, sans-serif",
+                    fontSize: "1.05rem",
+                    boxShadow: `0 0 32px ${BRAND_GLOW}`,
+                    minWidth: "220px",
+                  }}
+                >
+                  Done-With-You
+                </a>
+                <span
+                  className="text-sm font-semibold"
+                  style={{
+                    color: "#cc66ff",
+                    fontFamily: "Space Grotesk, sans-serif",
+                  }}
+                >
+                  Investment: $1000
+                </span>
+              </div>
 
-              <a
-                href="https://selar.com/2223779e73"
-                className="inline-flex items-center justify-center gap-2 rounded-xl px-9 py-4 text-white font-bold transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
-                style={{
-                  background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
-                  fontFamily: "Space Grotesk, sans-serif",
-                  fontSize: "1.05rem",
-                  boxShadow: `0 0 32px ${BRAND_GLOW}`,
-                  minWidth: "220px",
-                }}
-              >
-                Done-For-You
-              </a>
+              <div className="flex flex-col items-center gap-2">
+                <a
+                  href="https://selar.com/2223779e73"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl px-9 py-4 text-white font-bold transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
+                  style={{
+                    background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
+                    fontFamily: "Space Grotesk, sans-serif",
+                    fontSize: "1.05rem",
+                    boxShadow: `0 0 32px ${BRAND_GLOW}`,
+                    minWidth: "220px",
+                  }}
+                >
+                  Done-For-You
+                </a>
+                <span
+                  className="text-sm font-semibold"
+                  style={{
+                    color: "#cc66ff",
+                    fontFamily: "Space Grotesk, sans-serif",
+                  }}
+                >
+                  Investment: $3000
+                </span>
+              </div>
 
               {/* <span
                 className="text-sm font-semibold"
