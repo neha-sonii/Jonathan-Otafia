@@ -263,41 +263,65 @@ export function FounderPainSection() {
 
             <ScrollReveal delay={0.05}>
               <div
-                className="grid grid-cols-1 items-center gap-7 rounded-3xl p-5 sm:p-6 lg:grid-cols-[1fr_0.82fr] lg:p-7"
+                className="grid grid-cols-1 items-start gap-7 rounded-3xl lg:grid-cols-[1fr_0.75fr] px-0 sm:px-0 lg:px-0 "
                 style={{
-                  background:
-                    "linear-gradient(135deg, rgba(124,0,158,0.16), rgba(255,255,255,0.045) 42%, rgba(0,0,0,0.36))",
-                  border: "1px solid rgba(204,102,255,0.22)",
-                  boxShadow: "0 26px 90px rgba(0,0,0,0.44)",
+                  // background:
+                  //   "linear-gradient(135deg, rgba(124,0,158,0.16), rgba(255,255,255,0.045) 42%, rgba(0,0,0,0.36))",
+                  // border: "1px solid rgba(204,102,255,0.22)",
+                  // boxShadow: "0 26px 90px rgba(0,0,0,0.44)",
                 }}
               >
-                <div className="px-1 sm:px-3">
-                  {/* <p
-                    className="mb-3 text-sm font-semibold uppercase tracking-widest"
-                    style={{ color: "#cc66ff", fontFamily: "Space Grotesk, sans-serif" }}
-                  >
-                    The Shift
-                  </p> */}
+                <div className="order-2 lg:order-1 px-0 sm:px-0 lg:px-0 mt-0">
                   <p
-                    className="text-white"
-                    style={{
-                      fontFamily: "Space Grotesk, sans-serif",
-                      fontSize: "clamp(1.45rem, 3vw, 2.35rem)",
-                      fontWeight: 700,
-                      lineHeight: 1.18,
-                    }}
-                  >
-                    I am Jonathan Otafia. I learned how to make LinkedIn stop feeling random.
+                    className="mt-0 text-[#aab4c3]"
+                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
+                  >I'm Jonathan Otafia. A <strong className="text-white">20-year-old</strong>, I made my first <strong className="text-white">4 figures in a single month</strong> through LinkedIn alone. Today I work with coaches and founders generating clients from <strong className="text-white">7 countries</strong>. Not because I had more talent. Because I fixed something most people never address.
                   </p>
                   <p
-                    className="mt-5 text-[#aab4c3]"
+                    className="mt-4 text-[#aab4c3]"
                     style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
                   >
-                    I am Jonathan Otafia. A <strong className="text-white">20-year-old</strong>, I made my first <strong className="text-white">4 figures in a single month</strong> through LinkedIn alone. Today I work with coaches and founders generating clients from <strong className="text-white">7 countries</strong>. Not because I had more talent. Because I fixed something most people never address.
+                    Maybe it's not the webinar. Maybe it's not even the offer or course.
+                  </p>
+                  <p
+                    className="mt-4 text-[#aab4c3]"
+                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
+                  >
+                    Maybe it's the quiet feeling that you're <strong className="text-white">shouting into a room where nobody's actually listening</strong>.
+                  </p>
+                  <p
+                    className="mt-4 text-[#aab4c3]"
+                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
+                  >
+                    You post consistently, show up, give real value, real frameworks and real proof of your expertise. And the engagement trickles in just enough to keep you posting, but never enough to <strong className="text-white">convert</strong>.
+                  </p>
+                  <p
+                    className="mt-4 text-[#aab4c3]"
+                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
+                  >
+                    You watch someone with less experience than you announce a program and <strong className="text-white">sell out in 48 hours</strong>. You wonder what they know that you don't.
+                  </p>
+                  <p
+                    className="mt-4 text-[#aab4c3]"
+                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
+                  >
+                    You've started to <strong className="text-white">dread posting about your own offers</strong> because every launch feels like a small, public rejection.
+                  </p>
+                  <p
+                    className="mt-4 text-[#aab4c3]"
+                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
+                  >
+                    You smile in your testimonials section. You stay professional in your captions. But privately, you've started to wonder if <strong className="text-white">LinkedIn even works for people like you</strong>.
+                  </p>
+                  <p
+                    className="mt-4 text-[#aab4c3]"
+                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.45vw, 1.1rem)", lineHeight: 1.85 }}
+                  >
+                    It's not that you lack the skill. It's that <strong style={{ color: "#cc66ff" }}>visibility and positioning were never taught to you - only the expertise was</strong>.
                   </p>
                 </div>
 
-                <div className="relative mx-auto w-full max-w-[360px]">
+                <div className="order-1 lg:order-2 relative mx-auto w-full max-w-[300px]">
                   <div
                     className="absolute inset-0 rounded-3xl blur-[48px]"
                     style={{ background: "rgba(124,0,158,0.38)", transform: "scale(1.04)" }}
@@ -331,57 +355,6 @@ export function FounderPainSection() {
                       </p>
                     </div>
                   </div>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={0.05}>
-              <div
-                className="px-0 sm:px-0 lg:px-0 py-6 sm:py-8 lg:py-10"
-              >
-                <div className="flex flex-col gap-5">
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    Maybe it's not the webinar. Maybe it's not even the offer or course.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    Maybe it's the quiet feeling that you're <strong className="text-white">shouting into a room where nobody's actually listening</strong>.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    You post consistently, show up, give real value, real frameworks and real proof of your expertise. And the engagement trickles in just enough to keep you posting, but never enough to <strong className="text-white">convert</strong>.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    You watch someone with less experience than you announce a program and <strong className="text-white">sell out in 48 hours</strong>. You wonder what they know that you don't.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    You've started to <strong className="text-white">dread posting about your own offers</strong> because every launch feels like a small, public rejection.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    You smile in your testimonials section. You stay professional in your captions. But privately, you've started to wonder if <strong className="text-white">LinkedIn even works for people like you</strong>.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    It's not that you lack the skill. It's that <strong style={{ color: "#cc66ff" }}>visibility and positioning were never taught to you - only the expertise was</strong>.
-                  </p>
                 </div>
               </div>
             </ScrollReveal>
