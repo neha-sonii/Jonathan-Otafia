@@ -5,6 +5,9 @@ import { HeroSection } from "./components/HeroSection";
 const AboutSection = lazy(() =>
   import("./components/AboutSection").then((module) => ({ default: module.AboutSection }))
 );
+const FounderPainSection = lazy(() =>
+  import("./components/FounderPainSection").then((module) => ({ default: module.FounderPainSection }))
+);
 const SocialProofSection = lazy(() =>
   import("./components/SocialProofSection").then((module) => ({ default: module.SocialProofSection }))
 );
@@ -108,6 +111,9 @@ export default function App() {
       <main id="main-content">
         <HeroSection />
         <Suspense fallback={null}>
+          <LazySection id="founder-pain" minHeight={1700}>
+            <FounderPainSection />
+          </LazySection>
           <LazySection id="results" minHeight={900}>
             <SocialProofSection />
           </LazySection>
