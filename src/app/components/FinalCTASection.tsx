@@ -57,7 +57,7 @@ export function FinalCTASection() {
             style={{
               fontFamily: "Space Grotesk, sans-serif",
               fontSize: "clamp(2.2rem, 5.5vw, 3.8rem)",
-              fontWeight: 800,
+              fontWeight: 700,
               lineHeight: 1.08,
               letterSpacing: "-0.025em",
             }}
@@ -112,9 +112,7 @@ export function FinalCTASection() {
         {/* Main CTA */}
         <ScrollReveal delay={0.22}>
           <a
-            href="https://selar.com/g5c5262726"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#process"
             className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl text-white font-bold hover:opacity-95 hover:scale-[1.04] transition-all duration-300 mb-4"
             style={{
               background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,

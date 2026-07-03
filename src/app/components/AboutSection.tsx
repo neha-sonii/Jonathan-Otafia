@@ -296,7 +296,7 @@ export function AboutSection() {
 
               <div className="mt-2 flex flex-wrap gap-3">
                 <a
-                  href="#book-call"
+                  href="#process"
                   className="rounded-xl px-6 py-3 font-bold text-white transition-all duration-300 hover:scale-[1.04] hover:opacity-90"
                   style={{
                     background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,

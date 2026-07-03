@@ -1,4 +1,4 @@
-import { EyeOff, MessageCircleOff, Quote, Sparkles, TrendingDown } from "lucide-react";
+import { EyeOff, MessageCircleOff, Quote, Sparkles, TrendingDown, ArrowRight } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollReveal } from "./ScrollReveal";
 
@@ -319,6 +319,22 @@ export function FounderPainSection() {
                   >
                     It's not that you lack the skill. It's that <strong style={{ color: "#cc66ff" }}>visibility and positioning were never taught to you - only the expertise was</strong>.
                   </p>
+                  
+                  <div className="mt-8 flex justify-center">
+                    <a
+                      href="#process"
+                      className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold transition-all duration-300 hover:scale-[1.04]"
+                      style={{
+                        background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
+                        fontFamily: "Space Grotesk, sans-serif",
+                        fontSize: "1.05rem",
+                        boxShadow: `0 0 40px rgba(124, 0, 158, 0.5), 0 4px 24px rgba(0,0,0,0.4)`,
+                      }}
+                    >
+                      Book a Discovery Call
+                      <ArrowRight size={18} />
+                    </a>
+                  </div>
                 </div>
 
                 <div className="order-1 lg:order-2 relative mx-auto w-full max-w-[300px]">

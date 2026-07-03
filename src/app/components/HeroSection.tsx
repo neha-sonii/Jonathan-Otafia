@@ -81,7 +81,7 @@ export function HeroSection() {
               style={{
                 fontFamily: "Space Grotesk, sans-serif",
                 fontSize: "clamp(2.6rem, 5.5vw, 4.5rem)",
-                fontWeight: 800,
+                fontWeight: 700,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.07,
               }}
@@ -122,7 +122,7 @@ export function HeroSection() {
             className="flex flex-wrap gap-4 items-center"
           >
             <a
-              href="https://selar.com/g5c5262726"
+              href="#process"
               className="flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold transition-all duration-300 hover:scale-[1.04]"
               style={{
                 background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})`,
