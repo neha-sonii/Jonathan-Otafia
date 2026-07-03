@@ -6,7 +6,7 @@ import { useNavigate, useSearchParams } from "react-router";
 const LOGO_SRC = "/Logo2.png";
 const BRAND = "#7C009E";
 const BRAND_LIGHT = "#A100CF";
-const EMAIL_TO = "nehasony0511@gmail.com";
+const EMAIL_TO = "jonathanpaulinus32@gmail.com";
 
 const SELAR_LINKS = {
   "done-with-you": "https://selar.com/2223779e73",
