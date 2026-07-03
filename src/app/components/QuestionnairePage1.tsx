@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router";
 
 const LOGO_SRC = "/Logo2.png";
@@ -161,31 +161,36 @@ export function QuestionnairePage1() {
     setSubmitError(null);
 
     const payload = {
+      access_key: "af3a97c6-633d-42d9-93ad-169b25ccee9d",
       name: formData.name,
       email: formData.email,
-      linkedinUrl: formData.linkedinUrl,
-      plan: selectedPlan,
-      planLabel,
-      submittedAt: new Date().toISOString(),
-      answers: questions.map((question, index) => ({
-        question: question.title,
-        answer: answers[index] || "",
-      })),
+      subject: `New ${planLabel} lead from website`,
+      message: `Plan: ${planLabel}\nLinkedIn: ${formData.linkedinUrl || "Not provided"}\n\nAnswers:\n${questions
+        .map((question, index) => `${index + 1}. ${question.title}: ${answers[index] || "Not answered"}`)
+        .join("\n")}`,
+      from_name: formData.name || "Website lead",
+      replyto: formData.email,
+      "custom variables": JSON.stringify({
+        plan: selectedPlan,
+        planLabel,
+        linkedinUrl: formData.linkedinUrl,
+        submittedAt: new Date().toISOString(),
+      }),
     };
 
     try {
-      const response = await fetch("/api/send-lead", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(payload),
       });
       const result = await response.json().catch(() => null);
 
-      if (!response.ok) {
-        console.warn("Lead email failed, continuing to checkout", result);
+      if (!response.ok || result?.success !== true) {
+        console.warn("Web3Forms submit failed, continuing to checkout", result);
       }
     } catch (error) {
-      console.error("Lead email failed", error);
+      console.error("Web3Forms submit failed", error);
     } finally {
       setIsSubmitting(false);
       window.location.href = SELAR_LINKS[selectedPlan];
