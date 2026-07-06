@@ -173,91 +173,91 @@ export function FounderPainSection() {
                   boxShadow: "0 26px 90px rgba(0,0,0,0.42)",
                 }}
               > */}
-                <div className="flex flex-col gap-5 px-0 sm:px-0 lg:px-0 py-6 sm:py-8 lg:py-10" style={{
-                  // ...glass,
-                  // background:
-                  //   "linear-gradient(145deg, rgba(255,255,255,0.055), rgba(124,0,158,0.075) 48%, rgba(255,255,255,0.035))",
-                  // boxShadow: "0 26px 90px rgba(0,0,0,0.42)",
-                }}>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
-                  >
-                    Are you tired of pouring your heart into an offer <strong className="text-white">nobody signs up for</strong>?
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
-                  >
-                    You announced the webinar three times. You wrote the post at midnight, deleted it, rewrote it, finally hit publish, and watched the RSVP count stay at <strong className="text-white">zero</strong>.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
-                  >
-                    You priced the program fairly. You explained the transformation clearly. You believed in it completely.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
-                  >
-                    And still - <strong className="text-white">silence</strong>.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
-                  >
-                     <strong className="text-white">No DMs.</strong> No "I'm interested." No sign-ups. Just you, refreshing your own post, hoping the numbers are wrong.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
-                  >
-                    You told yourself maybe it's the timing. Maybe it's the algorithm. Maybe people are just busy this month.
-                  </p>
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
-                  >
-                    But deep down, a quieter question keeps showing up...
-                  </p>
+              <div className="flex flex-col gap-5 px-0 sm:px-0 lg:px-0 py-6 sm:py-8 lg:py-10" style={{
+                // ...glass,
+                // background:
+                //   "linear-gradient(145deg, rgba(255,255,255,0.055), rgba(124,0,158,0.075) 48%, rgba(255,255,255,0.035))",
+                // boxShadow: "0 26px 90px rgba(0,0,0,0.42)",
+              }}>
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
+                >
+                  Are you tired of pouring your heart into an offer <strong className="text-white">nobody signs up for</strong>?
+                </p>
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
+                >
+                  You announced the webinar three times. You wrote the post at midnight, deleted it, rewrote it, finally hit publish, and watched the RSVP count stay at <strong className="text-white">zero</strong>.
+                </p>
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
+                >
+                  You priced the program fairly. You explained the transformation clearly. You believed in it completely.
+                </p>
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
+                >
+                  And still - <strong className="text-white">silence</strong>.
+                </p>
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
+                >
+                  <strong className="text-white">No DMs.</strong> No "I'm interested." No sign-ups. Just you, refreshing your own post, hoping the numbers are wrong.
+                </p>
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
+                >
+                  You told yourself maybe it's the timing. Maybe it's the algorithm. Maybe people are just busy this month.
+                </p>
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.5 }}
+                >
+                  But deep down, a quieter question keeps showing up...
+                </p>
 
-                  <div
-                    className="my-2 rounded-2xl px-5 py-5 sm:px-7"
+                <div
+                  className="my-2 rounded-2xl px-5 py-5 sm:px-7"
+                  style={{
+                    ...glass,
+                    background:
+                      "linear-gradient(145deg, rgba(255,255,255,0.055), rgba(124,0,158,0.075) 48%, rgba(255,255,255,0.035))",
+                    boxShadow: "0 26px 90px rgba(0,0,0,0.42)",
+                  }}
+                >
+                  <Quote size={22} style={{ color: "#cc66ff" }} />
+                  <p
+                    className="mt-3 text-white italic"
                     style={{
-                      ...glass,
-                       background:
-                    "linear-gradient(145deg, rgba(255,255,255,0.055), rgba(124,0,158,0.075) 48%, rgba(255,255,255,0.035))",
-                  boxShadow: "0 26px 90px rgba(0,0,0,0.42)",
+                      fontFamily: "fangsong",
+                      fontSize: "clamp(1.35rem, 2.8vw, 2.15rem)",
+                      fontWeight: 600,
+                      lineHeight: 1.25,
                     }}
                   >
-                    <Quote size={22} style={{ color: "#cc66ff" }} />
-                    <p
-                      className="mt-3 text-white italic"
-                      style={{
-                        fontFamily: "fangsong",
-                        fontSize: "clamp(1.35rem, 2.8vw, 2.15rem)",
-                        fontWeight: 600,
-                        lineHeight: 1.25,
-                      }}
-                    >
-                      Am I actually good at what I do, or am I just invisible to the people who would pay for it?
-                    </p>
-                  </div>
-
-                  <p
-                    className="text-[#aab4c3]"
-                    style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
-                  >
-                    That question does not go away. It just gets buried under the next post, the next offer, the next attempt to try again.
-                  </p>
-                  <p
-                    className="font-semibold text-[#aab4c3]"
-                    style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "clamp(1.05rem, 1.7vw, 1.25rem)", lineHeight: 1.7 }}
-                  >
-                    If you read to this point, then you might want to lean into what I am about to say.
+                    Am I actually good at what I do, or am I just invisible to the people who would pay for it?
                   </p>
                 </div>
+
+                <p
+                  className="text-[#aab4c3]"
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(1rem, 1.5vw, 1.12rem)", lineHeight: 1.9 }}
+                >
+                  That question does not go away. It just gets buried under the next post, the next offer, the next attempt to try again.
+                </p>
+                <p
+                  className="font-semibold text-[#aab4c3]"
+                  style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "clamp(1.05rem, 1.7vw, 1.25rem)", lineHeight: 1.7 }}
+                >
+                  If you read to this point, then you might want to lean into what I am about to say.
+                </p>
+              </div>
               {/* </article> */}
             </ScrollReveal>
 

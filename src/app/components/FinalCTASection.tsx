@@ -123,7 +123,7 @@ export function FinalCTASection() {
             }}
           >
             <Calendar size={20} />
-            Book Your 20-minute Discovery Call
+            Book Your 30-minute Discovery Call
             <ArrowRight size={20} />
           </a>
         </ScrollReveal>

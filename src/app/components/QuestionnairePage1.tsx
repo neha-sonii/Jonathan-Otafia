@@ -1,17 +1,81 @@
+import * as React from "react";
 import { useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar as CalendarIcon, Loader2 } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router";
+import { Calendar } from "./ui/calendar";
 
 const LOGO_SRC = "/Logo2.png";
 const BRAND = "#7C009E";
 const BRAND_LIGHT = "#A100CF";
-const EMAIL_TO = "jonathanpaulinus32@gmail.com";
+const LINKEDIN_PROFILE_URL = "https://www.linkedin.com/in/jonathan-otafia-871297359/";
 
-const SELAR_LINKS = {
-  "done-with-you": "https://selar.com/2223779e73",
-  "done-for-you": "https://selar.com/5ks5j26b12",
-} as const;
+const TIME_SLOTS = [
+  "09:00 AM",
+  "09:30 AM",
+  "10:00 AM",
+  "10:30 AM",
+  "11:00 AM",
+  "11:30 AM",
+  "12:00 PM",
+  "12:30 PM",
+  "01:00 PM",
+  "01:30 PM",
+  "02:00 PM",
+  "02:30 PM",
+  "03:00 PM",
+  "03:30 PM",
+  "04:00 PM",
+  "04:30 PM",
+  "05:00 PM",
+  "05:30 PM",
+  "06:00 PM",
+  "06:30 PM",
+  "07:00 PM",
+  "07:30 PM",
+  "08:00 PM",
+];
+
+const TIMEZONE_OPTIONS = [
+  { label: "GMT-08:00 Los Angeles (US)", value: "America/Los_Angeles" },
+  { label: "GMT-05:00 New York (US)", value: "America/New_York" },
+  { label: "GMT+00:00 London (UK)", value: "Europe/London" },
+  { label: "GMT+01:00 Berlin (DE)", value: "Europe/Berlin" },
+  { label: "GMT+03:00 Dubai (UAE)", value: "Asia/Dubai" },
+  { label: "GMT+05:30 Mumbai (India)", value: "Asia/Kolkata" },
+  { label: "GMT+08:00 Singapore", value: "Asia/Singapore" },
+  { label: "GMT+09:00 Tokyo (JP)", value: "Asia/Tokyo" },
+  { label: "GMT+10:00 Sydney (AU)", value: "Australia/Sydney" },
+  { label: "GMT+12:00 Auckland (NZ)", value: "Pacific/Auckland" },
+];
+
+const DEFAULT_TIMEZONE = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+const getNextWeekday = () => {
+  const next = new Date();
+  next.setHours(0, 0, 0, 0);
+
+  while (next.getDay() === 0 || next.getDay() === 6) {
+    next.setDate(next.getDate() + 1);
+  }
+
+  return next;
+};
+
+const formatNiceDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+
+const formatShortDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 
 const questions = [
   {
@@ -85,14 +149,6 @@ const questions = [
 ] as const;
 
 const disqualifiers = [
-  // {
-  //   questionIndex: 0,
-  //   options: ["I'm still shaping my offer and audience"],
-  //   kicker: "Offer clarity first",
-  //   title: "You may be a little early for this system.",
-  //   body:
-  //     "The 8-week build works best once the offer and audience are already clear. Tighten that first, then come back when LinkedIn is ready to become a sales channel.",
-  // },
   {
     questionIndex: 1,
     options: ["No, that doesn't work for me"],
@@ -128,13 +184,25 @@ export function QuestionnairePage1() {
   const [step, setStep] = useState(-1);
   const [answers, setAnswers] = useState<string[]>([]);
   const [formData, setFormData] = useState({ name: "", email: "", linkedinUrl: "" });
+  const [selectedDate, setSelectedDate] = useState<Date>(getNextWeekday());
+  const [selectedTime, setSelectedTime] = useState(TIME_SLOTS[0]);
+  const [selectedTimezone, setSelectedTimezone] = useState(
+    TIMEZONE_OPTIONS.find((zone) => zone.value === DEFAULT_TIMEZONE)?.value ?? TIMEZONE_OPTIONS[5].value,
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [notice, setNotice] = useState<Disqualifier | null>(null);
+  const isBookingStep = step >= questions.length;
 
   const planLabel = useMemo(
     () => (selectedPlan === "done-for-you" ? "Done for you" : "Done with you"),
-    [selectedPlan]
+    [selectedPlan],
+  );
+  const selectedDateLabel = useMemo(() => formatNiceDate(selectedDate), [selectedDate]);
+  const selectedDateShort = useMemo(() => formatShortDate(selectedDate), [selectedDate]);
+  const timeZoneLabel = useMemo(
+    () => TIMEZONE_OPTIONS.find((item) => item.value === selectedTimezone)?.label ?? selectedTimezone,
+    [selectedTimezone],
   );
   const progress = step < 0 ? 0 : Math.min(((step + 1) / questions.length) * 100, 100);
 
@@ -144,7 +212,7 @@ export function QuestionnairePage1() {
     setAnswers(nextAnswers);
 
     const blocked = disqualifiers.find(
-      (item) => item.questionIndex === step && (item.options as readonly string[]).includes(option)
+      (item) => item.questionIndex === step && (item.options as readonly string[]).includes(option),
     );
 
     if (blocked) {
@@ -161,19 +229,22 @@ export function QuestionnairePage1() {
     setSubmitError(null);
 
     const payload = {
-      access_key: "af3a97c6-633d-42d9-93ad-169b25ccee9d",
-      name: formData.name,
+      access_key: "0b3dcbf6-862e-48cd-8859-f20809621ba7",
+      name: formData.name || "Website booking lead",
       email: formData.email,
-      subject: `New ${planLabel} lead from website`,
-      message: `Plan: ${planLabel}\nLinkedIn: ${formData.linkedinUrl || "Not provided"}\n\nAnswers:\n${questions
+      subject: `New ${planLabel} booking request`,
+      message: `Plan: ${planLabel}\nLinkedIn: ${formData.linkedinUrl || "Not provided"}\nDate: ${selectedDateLabel}\nTime: ${selectedTime}\nTimezone: ${timeZoneLabel}\n\nAnswers:\n${questions
         .map((question, index) => `${index + 1}. ${question.title}: ${answers[index] || "Not answered"}`)
         .join("\n")}`,
-      from_name: formData.name || "Website lead",
+      from_name: formData.name || "Website booking lead",
       replyto: formData.email,
       "custom variables": JSON.stringify({
         plan: selectedPlan,
         planLabel,
         linkedinUrl: formData.linkedinUrl,
+        date: selectedDateShort,
+        time: selectedTime,
+        timezone: selectedTimezone,
         submittedAt: new Date().toISOString(),
       }),
     };
@@ -187,13 +258,14 @@ export function QuestionnairePage1() {
       const result = await response.json().catch(() => null);
 
       if (!response.ok || result?.success !== true) {
-        console.warn("Web3Forms submit failed, continuing to checkout", result);
+        console.warn("Web3Forms submit failed, continuing to redirect", result);
       }
     } catch (error) {
       console.error("Web3Forms submit failed", error);
+      setSubmitError("We could not save your booking details, but you will still be redirected.");
     } finally {
       setIsSubmitting(false);
-      window.location.href = SELAR_LINKS[selectedPlan];
+      window.location.href = LINKEDIN_PROFILE_URL;
     }
   };
 
@@ -213,66 +285,70 @@ export function QuestionnairePage1() {
         <span className="hidden text-sm font-semibold text-[#8b9aac] sm:block">{planLabel}</span>
       </header>
 
-      <section className="mx-auto w-full max-w-3xl px-5 pb-16 pt-4">
-        <div className="mb-6 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
-          <div>
-            <h1 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-white sm:text-4xl">
-              Quick fit check
-            </h1>
-          </div>
-          <p className="text-sm text-[#8b9aac]">
-            {step < 0 ? "Start" : step >= questions.length ? "Details" : `${step + 1} / ${questions.length}`}
-          </p>
-        </div>
+      <section
+        className={`mx-auto w-full px-4 pb-16 pt-4 sm:px-5 ${
+          isBookingStep ? "max-w-[1420px]" : "max-w-2xl"
+        }`}
+      >
+        {!isBookingStep && (
+          <div className="mb-5">
+            <div className="mb-6 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-end">
+              <div>
+                <h1 className="mt-2 text-3xl font-bold leading-tight tracking-normal text-white sm:text-4xl">
+                  Quick fit check
+                </h1>
+              </div>
+              <p className="text-sm text-[#8b9aac]">
+                {step < 0 ? "Start" : `${step + 1} / ${questions.length}`}
+              </p>
+            </div>
 
-        <div className="mb-5 h-1 overflow-hidden rounded-full bg-white/10">
-          <div
-            className="h-full rounded-full bg-[#cc66ff] transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+            <div className="h-1 overflow-hidden rounded-full bg-white/10">
+              <div
+                className="h-full rounded-full bg-[#cc66ff] transition-all duration-300"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
+        )}
 
         {step === -1 && (
-          <Card keyName="intro">
-            <div className="">
-              <div>
-                <p className="mb-3 text-sm font-semibold text-[#cc66ff]">{planLabel}</p>
-                <h2 className="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-5xl">
-                  Let's see if we are a fit.
-                </h2>
-                <p className="mt-5 max-w-2xl text-base leading-7 text-[#8b9aac]">
-                  Five minutes, few questions. If we're a fit, you'll book a 30-minute call with Jonathan. If we're not, I'll point you in the right direction. Either way, no spam.
-                </p>
+          <div className="mx-auto w-full max-w-2xl">
+            <Card keyName="intro">
+              <div className="space-y-8">
+                <div>
+                  <p className="mb-3 text-sm font-semibold text-[#cc66ff]">{planLabel}</p>
+                  <h2 className="text-3xl font-bold leading-tight text-white sm:text-5xl">
+                    Let's see if we are a fit.
+                  </h2>
+                  <p className="mt-5 text-base leading-7 text-[#8b9aac]">
+                    Five minutes, few questions. If we're a fit, you'll book a 30-minute call with Jonathan. If we're not,
+                    I'll point you in the right direction. Either way, no spam.
+                  </p>
+                </div>
               </div>
-              {/* <InfoBox title="What happens next">
-                <p>1. Complete the fit check</p>
-                <p>2. Add your details</p>
-                <p>3. Continue to Selar</p>
-              </InfoBox> */}
-            </div>
-            <div className="mt-8 border-t border-white/10 pt-6">
-              <button
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 py-3 font-bold text-white transition hover:opacity-90"
-                style={{ background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})` }}
-                onClick={() => setStep(0)}
-              >
-                Start
-                <ArrowRight size={17} />
-              </button>
-            </div>
-          </Card>
+              <div className="mt-8 border-t border-white/10 pt-6">
+                <button
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 py-3 font-bold text-white transition hover:opacity-90"
+                  style={{ background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})` }}
+                  onClick={() => setStep(0)}
+                >
+                  Start
+                  <ArrowRight size={17} />
+                </button>
+              </div>
+            </Card>
+          </div>
         )}
 
         {step >= 0 && step < questions.length && (
-          <>
+          <div className="mx-auto w-full max-w-2xl">
             <Card keyName={`question-${step}`}>
               <p className="mb-3 text-sm font-semibold text-[#cc66ff]">{questions[step].eyebrow}</p>
-              <h2 className="max-w-3xl text-2xl font-bold leading-tight text-white sm:text-4xl">
+              <h2 className="text-2xl font-bold leading-tight text-white sm:text-4xl">
                 {questions[step].title}
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-7 text-[#8b9aac]">
-                {questions[step].help}
-              </p>
+              <p className="mt-4 text-base leading-7 text-[#8b9aac]">{questions[step].help}</p>
 
               <div className="mt-8 grid gap-3">
                 {questions[step].options.map((option, index) => (
@@ -292,9 +368,7 @@ export function QuestionnairePage1() {
                     >
                       {String(index + 1).padStart(2, "0")}
                     </span>
-                    <span className="text-sm font-semibold leading-6 text-[#dbe4f0] sm:text-base">
-                      {option}
-                    </span>
+                    <span className="text-sm font-semibold leading-6 text-[#dbe4f0] sm:text-base">{option}</span>
                     <ArrowRight
                       size={17}
                       className="text-[#677083] transition group-hover:translate-x-1 group-hover:text-[#cc66ff]"
@@ -303,86 +377,194 @@ export function QuestionnairePage1() {
                 ))}
               </div>
             </Card>
-            <BackButton onClick={() => setStep((current) => current - 1)} />
-          </>
+            <div className="mt-6">
+              <BackButton onClick={() => setStep((current) => current - 1)} />
+            </div>
+          </div>
         )}
 
         {step >= questions.length && (
           <>
-            <Card keyName="contact">
-              <div className="grid gap-8 lg:grid-cols-[1fr_280px]">
-                <div>
-                  <div
-                    className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl"
-                    style={{
-                      background: `${BRAND_LIGHT}12`,
-                      border: `1px solid ${BRAND_LIGHT}25`,
-                      color: "#cc66ff",
-                    }}
-                  >
-                    <CheckCircle2 size={24} />
-                  </div>
-                  <h2 className="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-4xl">
-                    Add your details.
-                  </h2>
-                  {/* <p className="mt-4 max-w-2xl text-base leading-7 text-[#8b9aac]">
-                    Your answers go to Jonathan first. After that, you will be sent to the
-                    {` ${planLabel} `}Selar page.
-                  </p> */}
-                </div>
-                <InfoBox title="Sent to">
-                  <p className="break-all">{EMAIL_TO}</p>
-                </InfoBox>
-              </div>
+            <div className="mx-auto w-full max-w-none">
+              <Card keyName="booking-layout" className="p-0 sm:p-0 md:p-0">
+                <div className="grid w-full items-stretch gap-0 overflow-hidden rounded-2xl border border-[#7C009E]/20 bg-[#08030c] lg:grid-cols-[minmax(300px,0.82fr)_minmax(420px,1.18fr)]">
+                  <div className="grid gap-6">
+                    <section className="min-w-0 border-b border-[#7C009E]/15 bg-[#120618] p-5 sm:p-7 lg:border-b-0 lg:border-r">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-[#7C009E]/20 text-[#cc66ff] ring-1 ring-[#cc66ff]/25">
+                          <img src={LOGO_SRC} alt="Jonathan Otafia logo" className="h-10 w-10 object-contain" />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#cc66ff]">
+                            LinkedIn Strategy Call
+                          </p>
+                          <h1 className="mt-2 text-2xl font-bold leading-tight text-white sm:text-3xl">
+                            Book your 30-minute call
+                          </h1>
+                        </div>
+                      </div>
 
-              <form className="mt-8 grid gap-5" onSubmit={submitContact}>
-                <div className="grid gap-4 md:grid-cols-2">
-                  <TextField
-                    label="Name"
-                    value={formData.name}
-                    onChange={(value) => setFormData((current) => ({ ...current, name: value }))}
-                    placeholder="Your name"
-                    autoComplete="name"
-                  />
-                  <TextField
-                    label="Email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(value) => setFormData((current) => ({ ...current, email: value }))}
-                    placeholder="you@company.com"
-                    autoComplete="email"
-                  />
+                      <div className="mt-8 space-y-4 text-sm leading-7 text-[#dbe4f0]">
+                        <p>We build and run your inbound LinkedIn system so you can focus on what you do best.</p>
+                        <p>
+                          If we are a fit, the team will explain what working together looks like and schedule the exact
+                          call details.
+                        </p>
+                      </div>
+
+                      <div className="mt-8 rounded-2xl border border-[#cc66ff]/15 bg-[#08020f] p-5 shadow-[0_0_32px_rgba(124,0,158,0.12)]">
+                        <div className="flex items-center justify-between gap-4 text-sm text-[#94a3b8]">
+                          <span>Duration</span>
+                          <span>30 min</span>
+                        </div>
+                        <div className="mt-4 flex items-center justify-between gap-4 text-sm text-[#94a3b8]">
+                          <span>Date</span>
+                          <span className="text-right">{selectedDateLabel}</span>
+                        </div>
+                        <div className="mt-3 flex items-center justify-between gap-4 text-sm text-[#94a3b8]">
+                          <span>Time</span>
+                          <span>{selectedTime}</span>
+                        </div>
+                        <div className="mt-3 flex items-center justify-between gap-4 text-sm text-[#94a3b8]">
+                          <span>Timezone</span>
+                          <span className="text-right">{timeZoneLabel}</span>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section className="min-w-0 bg-[#120618] p-5 pt-0 sm:p-7 sm:pt-0 lg:border-r lg:border-[#7C009E]/15">
+                      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#cc66ff]">Select date</p>
+                          <h2 className="mt-2 text-xl font-semibold text-white">Choose a weekday</h2>
+                        </div>
+                        <span className="inline-flex w-fit items-center justify-center rounded-full border border-[#cc66ff]/15 bg-[#7C009E]/20 px-3 py-1 text-xs font-semibold text-[#e6b4ff]">
+                          Weekdays only
+                        </span>
+                      </div>
+
+                      <div className="mt-5 rounded-2xl border border-[#cc66ff]/15 bg-[#07010d] p-2 sm:p-4">
+                        <Calendar
+                          mode="single"
+                          selected={selectedDate}
+                          onSelect={(date) => date && setSelectedDate(date)}
+                          disabled={[{ before: new Date() }]}
+                          className="mx-auto w-full max-w-[360px] text-white"
+                          classNames={{
+                            months: "flex justify-center",
+                            month: "w-full space-y-4",
+                            caption: "relative flex items-center justify-center pt-1",
+                            caption_label: "text-base font-bold text-white",
+                            nav: "absolute inset-x-0 top-0 flex items-center justify-between px-1",
+                            nav_button:
+                              "grid h-9 w-9 place-items-center rounded-full border border-[#cc66ff]/15 bg-[#7C009E]/15 text-white transition hover:bg-[#7C009E]/35",
+                            table: "w-full border-collapse",
+                            head_row: "grid grid-cols-7",
+                            head_cell: "py-2 text-center text-[0.7rem] font-bold uppercase text-[#c98cff]",
+                            row: "grid grid-cols-7",
+                            cell: "grid place-items-center p-1 text-center",
+                            day:
+                              "grid h-10 w-10 place-items-center rounded-full text-sm font-semibold text-[#eee6f6] transition hover:bg-[#7C009E]/25 hover:text-white",
+                            day_selected: "bg-[#7C009E] text-white shadow-[0_0_18px_rgba(204,102,255,0.45)]",
+                            day_today: "border border-[#cc66ff]/50",
+                            day_outside: "text-white/25",
+                            day_disabled: "cursor-not-allowed text-white/20 hover:bg-transparent",
+                          }}
+                        />
+                      </div>
+                    </section>
+                  </div>
+
+                  <section className="min-w-0 bg-[#101010] p-5 sm:p-7 lg:p-8">
+                    <div className="flex items-center gap-3">
+                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#7C009E]/15 text-[#cc66ff] ring-1 ring-[#cc66ff]/15">
+                        <CalendarIcon size={18} />
+                      </span>
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#cc66ff]">Pick time</p>
+                        <p className="mt-1 text-lg font-semibold text-white">Available slots</p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 grid max-h-[360px] gap-3 overflow-y-auto pr-1 sm:grid-cols-2 xl:grid-cols-3">
+                      {TIME_SLOTS.map((time) => {
+                        const active = time === selectedTime;
+                        return (
+                          <button
+                            key={time}
+                            type="button"
+                            onClick={() => setSelectedTime(time)}
+                            className={`w-full rounded-2xl border px-4 py-3 text-left text-sm font-semibold transition ${
+                              active
+                                ? "border-[#cc66ff] bg-[#7C009E] text-white shadow-[0_0_18px_rgba(124,0,158,0.28)]"
+                                : "border-[#7C009E]/20 bg-[#07010d] text-[#dbe4f0] hover:border-[#cc66ff]/60 hover:bg-[#7C009E]/15"
+                            }`}
+                          >
+                            {time}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <div className="mt-6 rounded-2xl border border-[#cc66ff]/15 bg-[#120618] p-4">
+                      <label className="block text-sm font-semibold text-white">Timezone</label>
+                      <select
+                        className="mt-3 w-full rounded-xl border border-[#7C009E]/20 bg-[#07010d] px-4 py-3 text-sm text-white outline-none transition focus:border-[#cc66ff]"
+                        value={selectedTimezone}
+                        onChange={(event) => setSelectedTimezone(event.target.value)}
+                      >
+                        {TIMEZONE_OPTIONS.map((zone) => (
+                          <option key={zone.value} value={zone.value} className="bg-slate-950 text-white">
+                            {zone.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <form className="mt-6 grid gap-4" onSubmit={submitContact}>
+                      <TextField
+                        label="Name"
+                        value={formData.name}
+                        onChange={(value) => setFormData((current) => ({ ...current, name: value }))}
+                        placeholder="Your name"
+                        autoComplete="name"
+                      />
+                      <TextField
+                        label="Email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(value) => setFormData((current) => ({ ...current, email: value }))}
+                        placeholder="you@company.com"
+                        autoComplete="email"
+                      />
+                      <TextField
+                        label="LinkedIn profile"
+                        type="url"
+                        value={formData.linkedinUrl}
+                        onChange={(value) => setFormData((current) => ({ ...current, linkedinUrl: value }))}
+                        placeholder="https://linkedin.com/in/yourname"
+                        autoComplete="url"
+                      />
+                      <button
+                        className="inline-flex min-h-[56px] items-center justify-center gap-2 rounded-2xl bg-[#7C009E] px-5 py-4 text-sm font-semibold text-white transition hover:bg-[#A100CF] disabled:cursor-wait disabled:opacity-70"
+                        type="submit"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : null}
+                        Book a call
+                      </button>
+                      {submitError ? <p className="text-sm text-red-400">{submitError}</p> : null}
+                      <p className="text-sm text-[#94a3b8]">
+                        After booking, you'll be redirected to Jonathan's LinkedIn profile to confirm the final call details.
+                      </p>
+                    </form>
+                  </section>
                 </div>
-                <TextField
-                  label="LinkedIn profile"
-                  type="url"
-                  value={formData.linkedinUrl}
-                  onChange={(value) =>
-                    setFormData((current) => ({ ...current, linkedinUrl: value }))
-                  }
-                  placeholder="https://linkedin.com/in/yourname"
-                  autoComplete="url"
-                />
-                <div className="mt-2 flex flex-col gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-                  {/* <span className="inline-flex items-center gap-2 text-sm text-[#8b9aac]">
-                    <Mail size={16} /> Answers are emailed before redirect.
-                  </span> */}
-                  <button
-                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 py-3 font-bold text-white transition hover:opacity-90 disabled:cursor-wait disabled:opacity-70"
-                    style={{ background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})` }}
-                    type="submit"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? <Loader2 size={17} className="animate-spin" /> : null}
-                    Book a call
-                  </button>
-                </div>
-                {submitError ? (
-                  <p className="text-sm text-red-400">{submitError}</p>
-                ) : null}
-              </form>
-            </Card>
-            <BackButton onClick={() => setStep(questions.length - 1)} />
+              </Card>
+            </div>
+            <div className="mx-auto mt-6 max-w-[1420px]">
+              <BackButton onClick={() => setStep(questions.length - 1)} />
+            </div>
           </>
         )}
       </section>
@@ -390,14 +572,22 @@ export function QuestionnairePage1() {
   );
 }
 
-function Card({ children, keyName }: { children: React.ReactNode; keyName: string }) {
+function Card({
+  children,
+  keyName,
+  className = "",
+}: {
+  children: React.ReactNode;
+  keyName: string;
+  className?: string;
+}) {
   return (
     <motion.div
       key={keyName}
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-      className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8 md:p-9"
+      className={`rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8 md:p-9 ${className}`}
       style={{
         backdropFilter: "blur(9px)",
         WebkitBackdropFilter: "blur(9px)",
@@ -408,20 +598,12 @@ function Card({ children, keyName }: { children: React.ReactNode; keyName: strin
   );
 }
 
-function InfoBox({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="rounded-xl p-5" style={{ background: `${BRAND_LIGHT}08`, border: `1px solid ${BRAND_LIGHT}18` }}>
-      <p className="mb-3 text-xs uppercase tracking-wider text-[#94a3b8]">{title}</p>
-      <div className="grid gap-2 text-sm leading-6 text-[#dbe4f0]">{children}</div>
-    </div>
-  );
-}
-
 function BackButton({ onClick }: { onClick: () => void }) {
   return (
     <button
       className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#8b9aac] underline underline-offset-4 hover:text-white"
       onClick={onClick}
+      type="button"
     >
       <ArrowLeft size={15} /> Previous step
     </button>
@@ -463,18 +645,15 @@ function ExitNotice({ notice, onDone }: { notice: Disqualifier; onDone: () => vo
   return (
     <main className="grid min-h-screen place-items-center bg-black px-5 py-10 text-white">
       <section className="w-full max-w-3xl rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8 md:p-9">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#cc66ff]">
-          {notice.kicker}
-        </p>
-        <h1 className="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-5xl">
-          {notice.title}
-        </h1>
+        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#cc66ff]">{notice.kicker}</p>
+        <h1 className="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-5xl">{notice.title}</h1>
         <p className="mt-5 max-w-2xl text-base leading-7 text-[#8b9aac]">{notice.body}</p>
         <div className="mt-8 border-t border-white/10 pt-6">
           <button
             onClick={onDone}
             className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl px-6 py-3 font-bold text-white transition hover:opacity-90"
             style={{ background: `linear-gradient(135deg, ${BRAND}, ${BRAND_LIGHT})` }}
+            type="button"
           >
             Got it, take me home
             <ArrowRight size={17} />
