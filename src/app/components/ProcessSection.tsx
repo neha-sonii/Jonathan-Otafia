@@ -294,7 +294,7 @@ export function ProcessSection() {
                     fontFamily: "Space Grotesk, sans-serif",
                   }}
                 >
-                  Investment: $1000
+                  Investment: $1399
                 </span>
               </div>
 
