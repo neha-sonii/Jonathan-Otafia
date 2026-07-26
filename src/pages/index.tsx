@@ -11,6 +11,9 @@ const FounderPainSection = lazy(() =>
 const SocialProofSection = lazy(() =>
   import("../app/components/SocialProofSection").then((module) => ({ default: module.SocialProofSection }))
 );
+const LinkedInProofGallery = lazy(() =>
+  import("../app/components/LinkedInProofGallery").then((module) => ({ default: module.LinkedInProofGallery }))
+);
 const TestimonialsSection = lazy(() =>
   import("../app/components/TestimonialsSection").then((module) => ({ default: module.TestimonialsSection }))
 );
@@ -27,6 +30,9 @@ const Footer = lazy(() =>
   import("../app/components/Footer").then((module) => ({ default: module.Footer }))
 );
 
+const banners = ["/Banner1.jpeg", "/Banner2.jpg", "/Banner3.jpg"];
+const analytics = ["/Analytic1.jpg", "/Analytic2.jpg", "/Analytic3.jpg"];
+
 export default function MainPage() {
   return (
     <>
@@ -36,6 +42,7 @@ export default function MainPage() {
         <Suspense fallback={null}>
           <FounderPainSection />
           <SocialProofSection />
+          <LinkedInProofGallery banners={banners} analytics={analytics} />
           <TestimonialsSection />
           <ProcessSection />
           <AboutSection />
