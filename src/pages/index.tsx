@@ -48,9 +48,9 @@ export default function MainPage() {
           <LinkedInProofGallery banners={banners} analytics={analytics} />
           <TestimonialsSection />
           <ProcessSection />
+          <FAQSection />
           <AboutSection />
           <ContentSection />
-          <FAQSection />
           <FinalCTASection />
         </Suspense>
       </main>
