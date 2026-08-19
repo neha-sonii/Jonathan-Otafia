@@ -23,6 +23,9 @@ const ProcessSection = lazy(() =>
 const ContentSection = lazy(() =>
   import("../app/components/ContentSection").then((module) => ({ default: module.ContentSection }))
 );
+const FAQSection = lazy(() =>
+  import("../app/components/FAQSection").then((module) => ({ default: module.FAQSection }))
+);
 const FinalCTASection = lazy(() =>
   import("../app/components/FinalCTASection").then((module) => ({ default: module.FinalCTASection }))
 );
@@ -47,6 +50,7 @@ export default function MainPage() {
           <ProcessSection />
           <AboutSection />
           <ContentSection />
+          <FAQSection />
           <FinalCTASection />
         </Suspense>
       </main>

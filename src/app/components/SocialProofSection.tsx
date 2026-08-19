@@ -34,6 +34,14 @@ interface Testimonial {
 
 const TESTIMONIALS: Testimonial[] = [
   {
+    avatar: "/Dr, moya.jpeg",
+    name: "Dr Moya Hill",
+    role: "Ai Governance",
+    location: "United States",
+    quote: "Just the second of working with jonthan.. I landed 2 podcast invites, 2 speking invites in 2 different countries, and a response from an ICP that ghosted me for a while. In addition, he provided me with structure that helped me hit my first VIRAL post with 230+ likes.",
+    result: "2 podcast invites, 2 speaking invites"
+  },
+  {
     avatar: "/turiya.jpg",
     name: "Turiya Hodge",
     role: "Social Media Strategist",
