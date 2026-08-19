@@ -38,7 +38,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Dr Moya Hill",
     role: "Ai Governance",
     location: "United States",
-    quote: "Just the second week of working with jonthan.. I landed 2 podcast invites, 2 speking invites in 2 different countries, and a response from an ICP that ghosted me for a while. In addition, he provided me with structure that helped me hit my first VIRAL post with 230+ likes.",
+    quote: "Just the second week of working with jonathan.. I landed 2 podcast invites, 2 speaking invites in 2 different countries, and a response from an ICP that ghosted me for a while. In addition, he provided me with structure that helped me hit my first VIRAL post with 230+ likes.",
     result: "2 podcast invites, 2 speaking invites"
   },
   {
