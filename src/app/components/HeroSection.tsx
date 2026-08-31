@@ -86,14 +86,14 @@ export function HeroSection() {
                 lineHeight: 1.07,
               }}
             >
-              Transforming Invisible Profiles Into An 
+              Move From Overlooked 
               <span
                 style={{
                   background: `linear-gradient(90deg, ${BRAND_LIGHT}, #cc66ff, #e0aaff)`,
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                 }}
-              > &nbsp; In-Demand Brand
+              > &nbsp; To Overbooked
               </span>{" "}
               {/* To Be{" "} */}
               {/* <span>
