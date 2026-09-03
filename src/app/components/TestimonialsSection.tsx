@@ -18,7 +18,6 @@ const screenshotColumns = [
       { src: "/bento-4.jpg", alt: "Client testimonial screenshot 4", width: 360, height: 137 },
       { src: "/bento-8.jpg", alt: "Client testimonial screenshot 8", width: 360, height: 136 },
       { src: "/bento-9.jpg", alt: "Client testimonial screenshot 9", width: 360, height: 175 },
-      { src: "/bento-6.jpg", alt: "Client testimonial screenshot 6", width: 360, height: 257 },
       { src: "/bento-7.jpg", alt: "Client testimonial screenshot 7", width: 360, height: 232 },
     ],
   },
