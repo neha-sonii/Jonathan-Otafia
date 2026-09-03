@@ -18,6 +18,7 @@ const screenshotColumns = [
       { src: "/bento-4.jpg", alt: "Client testimonial screenshot 4", width: 360, height: 137 },
       { src: "/bento-8.jpg", alt: "Client testimonial screenshot 8", width: 360, height: 136 },
       { src: "/bento-9.jpg", alt: "Client testimonial screenshot 9", width: 360, height: 175 },
+       { src: "/bento-5.jpg", alt: "Client testimonial screenshot 5", width: 360, height: 136 },
       { src: "/bento-7.jpg", alt: "Client testimonial screenshot 7", width: 360, height: 232 },
     ],
   },
@@ -25,7 +26,6 @@ const screenshotColumns = [
     alignment: "center",
     items: [
       { src: "/bento-2.jpg", alt: "Client testimonial screenshot 2", width: 482, height: 737 },
-      { src: "/bento-5.jpg", alt: "Client testimonial screenshot 5", width: 360, height: 136 },
       { src: "/bento-12.jpg", alt: "Client testimonial screenshot 12", width: 360, height: 443 },
     ],
   },
