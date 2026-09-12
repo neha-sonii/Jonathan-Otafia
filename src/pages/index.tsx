@@ -11,6 +11,9 @@ const FounderPainSection = lazy(() =>
 const SocialProofSection = lazy(() =>
   import("../app/components/SocialProofSection").then((module) => ({ default: module.SocialProofSection }))
 );
+const ViralPostsSection = lazy(() =>
+  import("../app/components/ViralPostsSection").then((module) => ({ default: module.ViralPostsSection }))
+);
 const LinkedInProofGallery = lazy(() =>
   import("../app/components/LinkedInProofGallery").then((module) => ({ default: module.LinkedInProofGallery }))
 );
@@ -45,6 +48,7 @@ export default function MainPage() {
         <Suspense fallback={null}>
           <FounderPainSection />
           <SocialProofSection />
+          <ViralPostsSection />
           <LinkedInProofGallery banners={banners} analytics={analytics} />
           <TestimonialsSection />
           <ProcessSection />
