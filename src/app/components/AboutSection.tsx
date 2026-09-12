@@ -225,7 +225,7 @@ export function AboutSection() {
                 signed my first international clients from the{" "}
                 <strong className="text-white">US and UK</strong>. Soon after, I
                 was working with people across{" "}
-                <strong className="text-white">6+ countries</strong>.{" "}
+                <strong className="text-white">9 countries</strong>.{" "}
                 <strong style={{ color: "#cc66ff" }}>All from LinkedIn.</strong>
               </p>
 
