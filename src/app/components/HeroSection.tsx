@@ -135,8 +135,8 @@ export function HeroSection() {
               <ArrowRight size={18} />
             </a>
             <a
-              href="#results"
-              className="flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-[1.03]"
+              href="https://poetic-bublanina-9c35d2.netlify.app/"
+                className="flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...glass,
                 fontFamily: "Space Grotesk, sans-serif",
@@ -144,7 +144,7 @@ export function HeroSection() {
               }}
             >
               <Play size={15} style={{ color: "#cc66ff" }} />
-              See Results
+              Join the Community
             </a>
           </motion.div>
 

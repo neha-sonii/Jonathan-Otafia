@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Navbar } from "../app/components/Navbar";
 import { HeroSection } from "../app/components/HeroSection";
+import { ChosenSection } from "../app/components/ChosenSection";
 
 const AboutSection = lazy(() =>
   import("../app/components/AboutSection").then((module) => ({ default: module.AboutSection }))
@@ -47,6 +48,7 @@ export default function MainPage() {
         <HeroSection />
         <Suspense fallback={null}>
           <FounderPainSection />
+          <ChosenSection />
           <SocialProofSection />
           <ViralPostsSection />
           <LinkedInProofGallery banners={banners} analytics={analytics} />
