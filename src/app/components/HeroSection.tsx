@@ -135,7 +135,7 @@ export function HeroSection() {
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://melodic-stardust-f2db55.netlify.app/"
+              href="https://roaring-mooncake-19e044.netlify.app/"
                 className="flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...glass,
