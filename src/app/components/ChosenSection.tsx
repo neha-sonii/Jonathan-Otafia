@@ -1,7 +1,7 @@
 import { ArrowUpRight, Check } from "lucide-react";
 import { ScrollReveal } from "./ScrollReveal";
 
-const COMMUNITY_URL = "https://poetic-bublanina-9c35d2.netlify.app/";
+const COMMUNITY_URL = "https://melodic-stardust-f2db55.netlify.app/";
 
 const benefits = [
   "Weekly live sessions",
