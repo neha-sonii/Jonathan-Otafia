@@ -9,6 +9,8 @@ const viralPosts = [
   { src: "/viral post 3.jpeg", alt: "Viral LinkedIn post performance screenshot 3" },
   { src: "/viral post 4.jpeg", alt: "Viral LinkedIn post performance screenshot 4" },
   { src: "/viral post 5.jpeg", alt: "Viral LinkedIn post performance screenshot 5" },
+  { src: "/viral post 6.jpeg", alt: "Viral LinkedIn post performance screenshot 6" },
+  { src: "/viral post 7.jpeg", alt: "Viral LinkedIn post performance screenshot 7" },
 ];
 
 export function ViralPostsSection() {

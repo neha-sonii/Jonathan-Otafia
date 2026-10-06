@@ -27,12 +27,20 @@ interface Testimonial {
   avatar: string;
   name: string;
   role: string;
-  location: string;
+  location?: string;
   quote: string;
   result: string;
 }
 
 const TESTIMONIALS: Testimonial[] = [
+  {
+    avatar: "/Amen habeeb.jpeg",
+    name: "Aiman Habeeb",
+    role: "Personal brand strategist",
+    location: "India",
+    quote: "I hit 83K impressions, 1K+ likes and 6 inbound leads from a single post on week 4 of his 8-week program - using his content framework",
+    result: "83K impressions, 1K+ likes & 6 inbound leads"
+  },
   {
     avatar: "/Dr, moya.jpeg",
     name: "Dr Moya Hill",
@@ -346,7 +354,9 @@ function FeaturedTestimonialCarousel() {
           </div>
           <div className="flex-1">
             <p className="text-white font-bold" style={{ fontFamily: "Space Grotesk, sans-serif" }}>{currentTestimonial.name}</p>
-            <p className="text-[#94a3b8] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{currentTestimonial.role}, {currentTestimonial.location}</p>
+            <p className="text-[#94a3b8] text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
+              {currentTestimonial.role}{currentTestimonial.location ? `, ${currentTestimonial.location}` : ""}
+            </p>
           </div>
         </div>
       </div>
