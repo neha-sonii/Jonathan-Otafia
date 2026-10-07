@@ -135,7 +135,7 @@ export function HeroSection() {
               <ArrowRight size={18} />
             </a>
             <a
-              href="https://gorgeous-marzipan-fb0b81.netlify.app/"
+              // href="https://gorgeous-marzipan-fb0b81.netlify.app/"
                 className="flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-300 hover:scale-[1.03]"
               style={{
                 ...glass,
@@ -144,7 +144,8 @@ export function HeroSection() {
               }}
             >
               <Play size={15} style={{ color: "#cc66ff" }} />
-              Join the Community
+              {/* Join the Community */}
+              See the Work
             </a>
           </motion.div>
 

@@ -48,7 +48,7 @@ export default function MainPage() {
         <HeroSection />
         <Suspense fallback={null}>
           <FounderPainSection />
-          <ChosenSection />
+          {/* <ChosenSection /> */}
           <SocialProofSection />
           <ViralPostsSection />
           <LinkedInProofGallery banners={banners} analytics={analytics} />
