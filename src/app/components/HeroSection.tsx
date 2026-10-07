@@ -110,7 +110,7 @@ export function HeroSection() {
               }}
             >
               I build the{" "}
-              <strong className="text-white">8-Week LinkedIn Visibility System</strong> for coaches &amp; founders turning invisible profiles into inbound client magnets, without cold DMs or paid ads.
+              <strong className="text-white">8-Week LinkedIn Visibility System</strong> for coaches &amp; founders turning invisible profiles into inbound client magnets, without cold DMs or paid[...]
             </p>
           </motion.div>
 
@@ -131,7 +131,7 @@ export function HeroSection() {
                 boxShadow: `0 0 40px ${BRAND_GLOW}, 0 4px 24px rgba(0,0,0,0.4)`,
               }}
             >
-              Book a Discovery Call
+              Book a call
               <ArrowRight size={18} />
             </a>
             <a
