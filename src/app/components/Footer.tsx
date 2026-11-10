@@ -88,6 +88,18 @@ export function Footer() {
           </p>
           <Crown size={12} style={{ color: "#cc66ff", opacity: 0.5 }} />
         </div>
+
+        <div className="mt-4 text-center">
+          <a
+            href="https://nehasoni-portfolio.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#94a3b8] hover:text-[#cc66ff] transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc66ff] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            Looking for a custom website? Let’s connect.
+          </a>
+        </div>
       </div>
     </footer>
   );
