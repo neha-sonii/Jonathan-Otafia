@@ -94,7 +94,7 @@ export function Footer() {
             href="https://nehasoni-portfolio.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#94a3b8] hover:text-[#cc66ff] transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc66ff] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
+            className="underline text-[#94a3b8] hover:text-[#cc66ff] transition-colors text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#cc66ff] focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-sm"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             Designed by NEHA SONI
